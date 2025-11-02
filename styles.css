@@ -1,0 +1,78 @@
+body {
+  background: #a2d8e6;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 400px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Image animation */
+.animated-image {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px) scale(1.04); }
+}
+
+.highlighted-text {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #e7d763 30%, #ffb347 100%);
+  color: #333;
+  padding: 8px 24px;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* Highlight text animation */
+  animation: highlightText 2.2s cubic-bezier(.3,0,.2,1) infinite alternate;
+}
+
+@keyframes highlightText {
+  0% { box-shadow: 0 0 0 0 rgba(255,179,71,0.6); }
+  100% { box-shadow: 0 0 16px 8px rgba(255,179,71,0.18); background: linear-gradient(90deg, #ffe066 30%, #ff8c42 100%);}
+}
+
+/* Animated underline for text */
+.animated-highlight {
+  position: relative;
+}
+
+.animated-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ffb347, #ff8c42);
+  animation: underlineGrow 1.5s linear infinite alternate;
+  border-radius: 2px;
+}
+
+@keyframes underlineGrow {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
